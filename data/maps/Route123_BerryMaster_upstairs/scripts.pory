@@ -1,0 +1,7 @@
+script Testing_Testing{
+    if(!flag(FLAG_SYS_POKEMON_GET)){
+        callnative (StartNewPokeballCaseUI)
+        waitstate
+    }
+    
+}

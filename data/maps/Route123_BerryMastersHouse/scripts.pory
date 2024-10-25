@@ -1,6 +1,7 @@
 mapscripts Route123_BerryMastersHouse_MapScripts {}
 
 
+
 script BerryMasterHouse_EventScipt_Pokeball{
     lockall
     
