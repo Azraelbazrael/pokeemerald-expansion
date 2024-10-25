@@ -1,0 +1,226 @@
+mapscripts Route123_BerryMastersHouse_MapScripts {}
+
+
+script BerryMasterHouse_EventScipt_Pokeball{
+    lockall
+    
+    if (flag(FLAG_UNUSED_0x021)){
+        
+        showmonpic(SPECIES_EEVEE, 4, 4)
+        playmoncry(SPECIES_EEVEE, CRY_MODE_ENCOUNTER)
+        do {
+        msgbox("Let EEVEE join your party?", MSGBOX_YESNO)
+        } while (var(VAR_RESULT) != YES)
+        
+        if (var(VAR_RESULT) == YES){
+            
+            givemon(SPECIES_EEVEE,5, ITEM_NONE)
+            playfanfare(MUS_OBTAIN_ITEM)
+            msgbox("EEVEE joins your party!")
+            removeobject(3)
+            setflag(FLAG_SYS_POKEMON_GET)
+            call(Nicknamepartymon)
+        }
+    }
+    
+    waitmessage
+    releaseall
+    end
+}
+
+
+script Nicknamepartymon{
+    hidemonpic
+    msgbox("would you like to nickname your EEVEE?", MSGBOX_YESNO)
+    
+    if (var(VAR_RESULT) == YES){
+        call(Common_EventScript_GetGiftMonPartySlot)
+        call(Common_EventScript_NameReceivedPartyMon)
+    }
+}
+
+script BerryMasterHouse_EventScipt_Mom2{
+    lockall
+    
+    if(!flag(FLAG_SYS_POKEMON_GET)){
+        faceplayer
+        msgbox(BerryMasterHouse_Mom2Worried)
+    }
+    else{
+        msgbox(BerryMasterHouse_Mom2Relieved)
+    }
+
+    waitmessage
+    releaseall
+    end
+}
+
+
+script BerryMasterHouse_EventScipt_Morning{
+    
+    
+    
+    if(!flag(FLAG_UNUSED_0x022)){
+        applymovement(1, LookLeft)
+        msgbox(BerryMasterHouse_EventScipt_Mom1_So)
+        
+
+        setflag(FLAG_UNUSED_0x022)
+        
+    
+    }
+   waitmessage
+   releaseall
+   end
+
+}
+
+
+
+
+// individual dialogue
+
+script BerryMastersHouse_EventScript_Mom1{
+    lockall
+    if (!flag(FLAG_UNUSED_0x021)){
+        
+        applymovement(1, MomLook)
+        msgbox(BerryMasterHouse_EventScipt_Mom1_No_Occasion)
+        
+        applymovement(2, MaudMove)
+        waitmovement(0)
+        msgbox(BerryMasterHouse_EventScript_Mom2_Youre_Getting_To_That_Age)
+        msgbox(BerryMasterHouse_EventScipt_Player_NotBuyingIt)
+        applymovement(2, LookLeft)
+        msgbox(BerryMasterHouse_EventScript_Mom2_Compositor)
+        applymovement(1, LookRight)
+        msgbox(BerryMasterHouse_EventScipt_Mom1_Happy)
+        msgbox(BerryMasterHouse_EventScipt_Player_Oh)
+
+        applymovement(2, MomLook)
+        msgbox(BerryMasterHouse_EventScipt_Mom2_Battling)
+        applymovement(1, MomLook)
+        msgbox(BerryMasterHouse_EventScipt_Mom1_Breeders)
+        
+        setflag(FLAG_UNUSED_0x021)
+
+    }
+    elif (!flag(FLAG_SYS_POKEMON_GET)){
+        msgbox(BerryMasterHouse_EventScipt_Mom1_pokeball)
+    }
+    waitmessage
+    releaseall
+}
+
+script BerryMastersHouse_EventScript_Mom1_wait{
+    applymovement(1, MomLook)
+    lockall
+    if(!flag(FLAG_SYS_POKEMON_GET)){
+        msgbox(BerryMasterHouse_Mom1Worried)
+        applymovement(1, MomLook)
+        applymovement(OBJ_EVENT_ID_PLAYER, DontGo)
+        waitmovement(0)
+    }
+    waitmessage
+    releaseall
+
+}
+
+// Mom1 + Mom2 cutscene schenanigans
+text BerryMasterHouse_EventScipt_Mom1_So{
+    format("Mother: Thank the skies you're up, Geneova!\N Breakfast is ready!\N Come, Come! Have a seat.")
+}
+text BerryMasterHouse_EventScipt_Player_NotBuyingIt{
+    format("...?")
+}
+text BerryMasterHouse_EventScipt_Mom1_No_Occasion{
+    format("Mother: Whaa--t? Occassion? Theres no occasion. We just wanted to-- Have a little chat with you, right hun?")
+}
+
+text BerryMasterHouse_EventScipt_Mom2_No_Occasion{
+    format("Mom: Er-- yeah... Somethin' like that.")
+}
+
+text BerryMasterHouse_EventScript_Mom2_Youre_Getting_To_That_Age{
+    format("Mom: So... \N You're getting to that age where you're curious about POKEMON training.\N Now that's all good, sport, yer not in any trouble...\N We just want our little blossom to adventure out there safely.")
+}
+
+
+text BerryMasterHouse_EventScipt_Player_Oh{
+    format("!!!!")
+}
+
+text BerryMasterHouse_EventScript_Mom2_Compositor{
+    format("Mom: ...What's that sweetpea?\N A Pokemon compositor?")
+
+}
+text BerryMasterHouse_EventScipt_Mom1_Happy{
+    format("Mother: Oh? Oh!\N That's wonderful, sweetie! You hear that, Maude?\N Our little sprout's not gonna get into any battles!")
+}
+
+text BerryMasterHouse_EventScipt_Player_Well{
+    format(".... ... .........")
+}
+
+text BerryMasterHouse_EventScipt_Mom2_Battling{
+    format("Mom: Oh. Modern Poke-contests use battling as another form of display, huh...?\N Figures...\N")
+}
+
+text BerryMasterHouse_EventScipt_Mom1_Breeders{
+    format("Mother: Oh, don't be like that... Least they can use our little surprise for them now.\N Got these from our old-neighbours!\N Adorable, but I hear packs a punch!")
+
+}
+
+text BerryMasterHouse_EventScipt_Mom1{
+    format("You stay safe now, alright? Good luck, Geneova!")
+}
+
+text BerryMasterHouse_EventScipt_Mom1_pokeball{
+    format("Arent't you gonna pick up the pokeball?")
+}
+//Player movement commands
+movement DontGo{
+    walk_up
+}
+movement MaudMove{
+    walk_left * 2
+    face_down
+}
+
+// Mom1 movement commands
+movement LookRight{
+    face_right
+}
+
+movement MomLook{
+    face_down
+    
+}
+
+movement LookLeft{
+    face_left
+}
+
+
+    
+
+text BerryMasterHouse_Mom1Worried{
+    "Where are you going? get back here!\n"
+}
+
+
+
+//Mom2 flavortext
+text BerryMasterHouse_Mom2Worried{
+    "Ay! Go back there!\p"
+    "Listen to your mother, now.\n"
+}
+text BerryMasterHouse_Mom2Relieved{
+    "Oh your mother is really a life saver\p"
+    " dont ya know...\p"
+    "Stay safe out there, Ginnie.\p" 
+    " I mean it!\p"
+    "The second you have problems\p" 
+    "you run right back to this house!!\n"
+}
+

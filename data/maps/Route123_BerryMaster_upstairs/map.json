@@ -2,15 +2,15 @@
   "id": "MAP_ROUTE123_BERRY_MASTER_UPSTAIRS",
   "name": "Route123_BerryMaster_upstairs",
   "layout": "LAYOUT_ROUTE123_BERRY_MASTER_UPSTAIRS",
-  "music": "MUS_DUMMY",
-  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "music": "MUS_RUSTBORO",
+  "region_map_section": "MAPSEC_ROUTE_123",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
-  "map_type": "MAP_TYPE_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
   "allow_cycling": false,
   "allow_escaping": false,
   "allow_running": false,
-  "show_map_name": true,
+  "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": 0,
   "object_events": [
@@ -19,7 +19,7 @@
       "x": 1,
       "y": 4,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WANDER_RIGHT_AND_LEFT",
+      "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -30,11 +30,11 @@
   ],
   "warp_events": [
     {
-      "x": 10,
-      "y": 5,
+      "x": 0,
+      "y": 2,
       "elevation": 0,
       "dest_map": "MAP_ROUTE123_BERRY_MASTERS_HOUSE",
-      "dest_warp_id": "0"
+      "dest_warp_id": "2"
     }
   ],
   "coord_events": [
@@ -47,7 +47,7 @@
       "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "PlayersHouse_2F_EventScript_Notebook"
     },
     {
       "type": "sign",
@@ -55,7 +55,7 @@
       "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "PlayersHouse_2F_EventScript_Notebook"
     },
     {
       "type": "sign",
