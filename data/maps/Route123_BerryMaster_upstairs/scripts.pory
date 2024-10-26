@@ -1,7 +1,8 @@
-script Testing_Testing{
-    if(!flag(FLAG_SYS_POKEMON_GET)){
-        callnative (StartNewPokeballCaseUI)
-        waitstate
-    }
-    
+mapscripts Route123_BerryMaster_upstairs_MapScripts {}
+
+script ROUTE_123_BERRYMASTERSHOUSE_STUPID_TOGEPI_DOLL{
+    lockall
+    msgbox("KHWFIRHIHSKH")
+    waitmessage
+    releaseall
 }

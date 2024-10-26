@@ -86,6 +86,7 @@ script BerryMastersHouse_EventScript_Mom1{
     if (!flag(FLAG_UNUSED_0x021)){
         
         applymovement(1, MomLook)
+        applymovement(OBJ_EVENT_ID_PLAYER, LookUp)
         msgbox(BerryMasterHouse_EventScipt_Mom1_No_Occasion)
         
         applymovement(2, MaudMove)
@@ -107,6 +108,7 @@ script BerryMastersHouse_EventScript_Mom1{
 
     }
     elif (!flag(FLAG_SYS_POKEMON_GET)){
+        faceplayer
         msgbox(BerryMasterHouse_EventScipt_Mom1_pokeball)
     }
     waitmessage
@@ -202,7 +204,9 @@ movement LookLeft{
     face_left
 }
 
-
+movement LookUp{
+    face_up
+}
     
 
 text BerryMasterHouse_Mom1Worried{

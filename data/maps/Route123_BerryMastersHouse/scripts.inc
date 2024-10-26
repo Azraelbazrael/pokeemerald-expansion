@@ -111,12 +111,12 @@ BerryMastersHouse_EventScript_Mom1::
 	lockall
 # 86 "data/maps/Route123_BerryMastersHouse/scripts.pory"
 	goto_if_unset FLAG_UNUSED_0x021, BerryMastersHouse_EventScript_Mom1_2
-# 109 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+# 110 "data/maps/Route123_BerryMastersHouse/scripts.pory"
 	goto_if_unset FLAG_SYS_POKEMON_GET, BerryMastersHouse_EventScript_Mom1_3
 BerryMastersHouse_EventScript_Mom1_1:
-# 112 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+# 114 "data/maps/Route123_BerryMastersHouse/scripts.pory"
 	waitmessage
-# 113 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+# 115 "data/maps/Route123_BerryMastersHouse/scripts.pory"
 	releaseall
 	return
 
@@ -124,101 +124,111 @@ BerryMastersHouse_EventScript_Mom1_2:
 # 88 "data/maps/Route123_BerryMastersHouse/scripts.pory"
 	applymovement 1, MomLook
 # 89 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, LookUp
+# 90 "data/maps/Route123_BerryMastersHouse/scripts.pory"
 	msgbox BerryMasterHouse_EventScipt_Mom1_No_Occasion
-# 91 "data/maps/Route123_BerryMastersHouse/scripts.pory"
-	applymovement 2, MaudMove
 # 92 "data/maps/Route123_BerryMastersHouse/scripts.pory"
-	waitmovement 0
+	applymovement 2, MaudMove
 # 93 "data/maps/Route123_BerryMastersHouse/scripts.pory"
-	msgbox BerryMasterHouse_EventScript_Mom2_Youre_Getting_To_That_Age
+	waitmovement 0
 # 94 "data/maps/Route123_BerryMastersHouse/scripts.pory"
-	msgbox BerryMasterHouse_EventScipt_Player_NotBuyingIt
+	msgbox BerryMasterHouse_EventScript_Mom2_Youre_Getting_To_That_Age
 # 95 "data/maps/Route123_BerryMastersHouse/scripts.pory"
-	applymovement 2, LookLeft
+	msgbox BerryMasterHouse_EventScipt_Player_NotBuyingIt
 # 96 "data/maps/Route123_BerryMastersHouse/scripts.pory"
-	msgbox BerryMasterHouse_EventScript_Mom2_Compositor
+	applymovement 2, LookLeft
 # 97 "data/maps/Route123_BerryMastersHouse/scripts.pory"
-	applymovement 1, LookRight
+	msgbox BerryMasterHouse_EventScript_Mom2_Compositor
 # 98 "data/maps/Route123_BerryMastersHouse/scripts.pory"
-	msgbox BerryMasterHouse_EventScipt_Mom1_Happy
+	applymovement 1, LookRight
 # 99 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+	msgbox BerryMasterHouse_EventScipt_Mom1_Happy
+# 100 "data/maps/Route123_BerryMastersHouse/scripts.pory"
 	msgbox BerryMasterHouse_EventScipt_Player_Oh
-# 101 "data/maps/Route123_BerryMastersHouse/scripts.pory"
-	applymovement 2, MomLook
 # 102 "data/maps/Route123_BerryMastersHouse/scripts.pory"
-	msgbox BerryMasterHouse_EventScipt_Mom2_Battling
+	applymovement 2, MomLook
 # 103 "data/maps/Route123_BerryMastersHouse/scripts.pory"
-	applymovement 1, MomLook
+	msgbox BerryMasterHouse_EventScipt_Mom2_Battling
 # 104 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+	applymovement 1, MomLook
+# 105 "data/maps/Route123_BerryMastersHouse/scripts.pory"
 	msgbox BerryMasterHouse_EventScipt_Mom1_Breeders
-# 106 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+# 107 "data/maps/Route123_BerryMastersHouse/scripts.pory"
 	setflag FLAG_UNUSED_0x021
 	goto BerryMastersHouse_EventScript_Mom1_1
 
 BerryMastersHouse_EventScript_Mom1_3:
-# 110 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+# 111 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+	faceplayer
+# 112 "data/maps/Route123_BerryMastersHouse/scripts.pory"
 	msgbox BerryMasterHouse_EventScipt_Mom1_pokeball
 	goto BerryMastersHouse_EventScript_Mom1_1
 
 
 BerryMastersHouse_EventScript_Mom1_wait::
-# 117 "data/maps/Route123_BerryMastersHouse/scripts.pory"
-	applymovement 1, MomLook
-# 118 "data/maps/Route123_BerryMastersHouse/scripts.pory"
-	lockall
 # 119 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+	applymovement 1, MomLook
+# 120 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+	lockall
+# 121 "data/maps/Route123_BerryMastersHouse/scripts.pory"
 	goto_if_unset FLAG_SYS_POKEMON_GET, BerryMastersHouse_EventScript_Mom1_wait_2
 BerryMastersHouse_EventScript_Mom1_wait_1:
-# 125 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+# 127 "data/maps/Route123_BerryMastersHouse/scripts.pory"
 	waitmessage
-# 126 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+# 128 "data/maps/Route123_BerryMastersHouse/scripts.pory"
 	releaseall
 	return
 
 BerryMastersHouse_EventScript_Mom1_wait_2:
-# 120 "data/maps/Route123_BerryMastersHouse/scripts.pory"
-	msgbox BerryMasterHouse_Mom1Worried
-# 121 "data/maps/Route123_BerryMastersHouse/scripts.pory"
-	applymovement 1, MomLook
 # 122 "data/maps/Route123_BerryMastersHouse/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, DontGo
+	msgbox BerryMasterHouse_Mom1Worried
 # 123 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+	applymovement 1, MomLook
+# 124 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, DontGo
+# 125 "data/maps/Route123_BerryMastersHouse/scripts.pory"
 	waitmovement 0
 	goto BerryMastersHouse_EventScript_Mom1_wait_1
 
 
-# 183 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+# 185 "data/maps/Route123_BerryMastersHouse/scripts.pory"
 DontGo:
-# 184 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+# 186 "data/maps/Route123_BerryMastersHouse/scripts.pory"
 	walk_up
 	step_end
 
-# 186 "data/maps/Route123_BerryMastersHouse/scripts.pory"
-MaudMove:
-# 187 "data/maps/Route123_BerryMastersHouse/scripts.pory"
-	walk_left
-# 187 "data/maps/Route123_BerryMastersHouse/scripts.pory"
-	walk_left
 # 188 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+MaudMove:
+# 189 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+	walk_left
+# 189 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+	walk_left
+# 190 "data/maps/Route123_BerryMastersHouse/scripts.pory"
 	face_down
 	step_end
 
-# 192 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+# 194 "data/maps/Route123_BerryMastersHouse/scripts.pory"
 LookRight:
-# 193 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+# 195 "data/maps/Route123_BerryMastersHouse/scripts.pory"
 	face_right
 	step_end
 
-# 196 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+# 198 "data/maps/Route123_BerryMastersHouse/scripts.pory"
 MomLook:
-# 197 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+# 199 "data/maps/Route123_BerryMastersHouse/scripts.pory"
 	face_down
 	step_end
 
-# 201 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+# 203 "data/maps/Route123_BerryMastersHouse/scripts.pory"
 LookLeft:
-# 202 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+# 204 "data/maps/Route123_BerryMastersHouse/scripts.pory"
 	face_left
+	step_end
+
+# 207 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+LookUp:
+# 208 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+	face_up
 	step_end
 
 BerryMasterHouse_EventScipt_Pokeball_Text_0:
@@ -234,28 +244,28 @@ Nicknamepartymon_Text_0:
 	.string "would you like to nickname your EEVEE?$"
 
 BerryMasterHouse_EventScipt_Mom1_So::
-# 131 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+# 133 "data/maps/Route123_BerryMastersHouse/scripts.pory"
 	.string "Mother: Thank the skies you're up,\n"
 	.string "Geneova!\l"
 	.string "Breakfast is ready!\l"
 	.string "Come, Come! Have a seat.$"
 
 BerryMasterHouse_EventScipt_Player_NotBuyingIt::
-# 134 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+# 136 "data/maps/Route123_BerryMastersHouse/scripts.pory"
 	.string "...?$"
 
 BerryMasterHouse_EventScipt_Mom1_No_Occasion::
-# 137 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+# 139 "data/maps/Route123_BerryMastersHouse/scripts.pory"
 	.string "Mother: Whaa--t? Occassion? Theres no\n"
 	.string "occasion. We just wanted to-- Have a\l"
 	.string "little chat with you, right hun?$"
 
 BerryMasterHouse_EventScipt_Mom2_No_Occasion::
-# 141 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+# 143 "data/maps/Route123_BerryMastersHouse/scripts.pory"
 	.string "Mom: Er-- yeah... Somethin' like that.$"
 
 BerryMasterHouse_EventScript_Mom2_Youre_Getting_To_That_Age::
-# 145 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+# 147 "data/maps/Route123_BerryMastersHouse/scripts.pory"
 	.string "Mom: So...\n"
 	.string "You're getting to that age where you're\l"
 	.string "curious about POKEMON training.\l"
@@ -265,16 +275,16 @@ BerryMasterHouse_EventScript_Mom2_Youre_Getting_To_That_Age::
 	.string "adventure out there safely.$"
 
 BerryMasterHouse_EventScipt_Player_Oh::
-# 150 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+# 152 "data/maps/Route123_BerryMastersHouse/scripts.pory"
 	.string "!!!!$"
 
 BerryMasterHouse_EventScript_Mom2_Compositor::
-# 154 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+# 156 "data/maps/Route123_BerryMastersHouse/scripts.pory"
 	.string "Mom: ...What's that sweetpea?\n"
 	.string "A Pokemon compositor?$"
 
 BerryMasterHouse_EventScipt_Mom1_Happy::
-# 158 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+# 160 "data/maps/Route123_BerryMastersHouse/scripts.pory"
 	.string "Mother: Oh? Oh!\n"
 	.string "That's wonderful, sweetie! You hear\l"
 	.string "that, Maude?\l"
@@ -282,11 +292,11 @@ BerryMasterHouse_EventScipt_Mom1_Happy::
 	.string "any battles!$"
 
 BerryMasterHouse_EventScipt_Player_Well::
-# 162 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+# 164 "data/maps/Route123_BerryMastersHouse/scripts.pory"
 	.string ".... ... .........$"
 
 BerryMasterHouse_EventScipt_Mom2_Battling::
-# 166 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+# 168 "data/maps/Route123_BerryMastersHouse/scripts.pory"
 	.string "Mom: Oh. Modern Poke-contests use\n"
 	.string "battling as another form of display,\l"
 	.string "huh...?\l"
@@ -294,7 +304,7 @@ BerryMasterHouse_EventScipt_Mom2_Battling::
 	.string "$"
 
 BerryMasterHouse_EventScipt_Mom1_Breeders::
-# 170 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+# 172 "data/maps/Route123_BerryMastersHouse/scripts.pory"
 	.string "Mother: Oh, don't be like that... Least\n"
 	.string "they can use our little surprise for\l"
 	.string "them now.\l"
@@ -302,25 +312,25 @@ BerryMasterHouse_EventScipt_Mom1_Breeders::
 	.string "Adorable, but I hear packs a punch!$"
 
 BerryMasterHouse_EventScipt_Mom1::
-# 175 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+# 177 "data/maps/Route123_BerryMastersHouse/scripts.pory"
 	.string "You stay safe now, alright? Good luck,\n"
 	.string "Geneova!$"
 
 BerryMasterHouse_EventScipt_Mom1_pokeball::
-# 179 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+# 181 "data/maps/Route123_BerryMastersHouse/scripts.pory"
 	.string "Arent't you gonna pick up the pokeball?$"
 
 BerryMasterHouse_Mom1Worried::
-# 208 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+# 212 "data/maps/Route123_BerryMastersHouse/scripts.pory"
 	.string "Where are you going? get back here!\n$"
 
 BerryMasterHouse_Mom2Worried::
-# 215 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+# 219 "data/maps/Route123_BerryMastersHouse/scripts.pory"
 	.string "Ay! Go back there!\p"
 	.string "Listen to your mother, now.\n$"
 
 BerryMasterHouse_Mom2Relieved::
-# 219 "data/maps/Route123_BerryMastersHouse/scripts.pory"
+# 223 "data/maps/Route123_BerryMastersHouse/scripts.pory"
 	.string "Oh your mother is really a life saver\p"
 	.string " dont ya know...\p"
 	.string "Stay safe out there, Ginnie.\p"
