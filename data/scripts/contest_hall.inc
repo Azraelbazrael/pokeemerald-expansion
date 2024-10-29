@@ -14,6 +14,7 @@
 .set LOCALID_CONTESTANT_4, 14
 .set LOCALID_ARTIST, 15
 
+
 @ Either ends or returns to EventScript_ContestReceptionist after submitting a contest entry
 LilycoveCity_ContestLobby_EventScript_SpeakToContestReceptionist::
 	lock
@@ -785,6 +786,10 @@ ContestHall_EventScript_DoContestAppeals::
 	applymovement LOCALID_JUDGE, ContestHall_Movement_WalkStageLeft
 	waitmovement 0
 	releaseall
+	
+	
+	@ call tourney stuff here Lolol
+	call BattleFrontier_BattleTowerBattleRoom_EventScript_EnterRoom
 	return
 
 ContestHall_EventScript_LetsAppeal::

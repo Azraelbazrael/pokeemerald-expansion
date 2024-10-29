@@ -434,7 +434,7 @@ ContestHall_EventScript_SetExitWarpLinkContest::
 	waitstate
 	end
 
-LilycoveCity_ContestLobby_EventScript_SetPlayerGfx::
+::
 	checkplayergender
 	goto_if_eq VAR_RESULT, MALE, LilycoveCity_ContestLobby_EventScript_SetPlayerGfxBrendan
 	goto_if_eq VAR_RESULT, FEMALE, LilycoveCity_ContestLobby_EventScript_SetPlayerGfxMay

@@ -1,6 +1,6 @@
 mapscripts Route123_BerryMastersHouse_MapScripts {}
 
-
+// setflag FLAG_RECEIVED_POKEBLOCK_CASE 
 
 script BerryMasterHouse_EventScipt_Pokeball{
     lockall
@@ -15,7 +15,7 @@ script BerryMasterHouse_EventScipt_Pokeball{
         
         if (var(VAR_RESULT) == YES){
             
-            givemon(SPECIES_EEVEE,5, ITEM_NONE)
+            givemon(SPECIES_EEVEE, 5, ITEM_NONE, move1=MOVE_CHARM,  move2=MOVE_CURSE, move3=MOVE_TACKLE, move4=MOVE_WISH)
             playfanfare(MUS_OBTAIN_ITEM)
             msgbox("EEVEE joins your party!")
             removeobject(3)
@@ -81,12 +81,14 @@ script BerryMasterHouse_EventScipt_Morning{
 
 // individual dialogue
 
-script BerryMastersHouse_EventScript_Mom1{
+script BerryMastersHouse_EventScript_Starter{
     lockall
     if (!flag(FLAG_UNUSED_0x021)){
         
         applymovement(1, MomLook)
+        
         applymovement(OBJ_EVENT_ID_PLAYER, LookUp)
+        msgbox(BerryMasterHouse_EventScipt_Player_NotBuyingIt)
         msgbox(BerryMasterHouse_EventScipt_Mom1_No_Occasion)
         
         applymovement(2, MaudMove)
@@ -107,12 +109,26 @@ script BerryMastersHouse_EventScript_Mom1{
         setflag(FLAG_UNUSED_0x021)
 
     }
-    elif (!flag(FLAG_SYS_POKEMON_GET)){
+    
+    waitmessage
+    releaseall
+}
+
+script BerryMasterHouse_EventScipt_Mom1{
+    lockall
+    if(!flag(FLAG_SYS_POKEMON_GET) && flag(FLAG_UNUSED_0x021)){
         faceplayer
         msgbox(BerryMasterHouse_EventScipt_Mom1_pokeball)
     }
+    else{
+        if (flag(FLAG_SYS_POKEMON_GET)){
+            faceplayer
+            msgbox(BerryMasterHouse_EventScipt_Mom1_Stay_Safe)
+        }
+    }
     waitmessage
     releaseall
+    end
 }
 
 script BerryMastersHouse_EventScript_Mom1_wait{
@@ -123,6 +139,15 @@ script BerryMastersHouse_EventScript_Mom1_wait{
         applymovement(1, MomLook)
         applymovement(OBJ_EVENT_ID_PLAYER, DontGo)
         waitmovement(0)
+    }
+    else{
+        applymovement(1, MomLook)
+        msgbox("Wait! Before you go...")
+        giveitem(ITEM_POKEBLOCK_CASE, 1)
+        playfanfare(MUS_OBTAIN_ITEM)
+        msgbox("GENEOVA recieved {POKEBLOCK} CASE!")
+        setflag(FLAG_RECEIVED_POKEBLOCK_CASE)
+
     }
     waitmessage
     releaseall
@@ -137,11 +162,11 @@ text BerryMasterHouse_EventScipt_Player_NotBuyingIt{
     format("...?")
 }
 text BerryMasterHouse_EventScipt_Mom1_No_Occasion{
-    format("Mother: Whaa--t? Occassion? Theres no occasion. We just wanted to-- Have a little chat with you, right hun?")
+    format("Mother: Whaa--t? Occassion?\N Theres no occasion. We just wanted to-- \NHave a little chat with you, right hun?")
 }
 
 text BerryMasterHouse_EventScipt_Mom2_No_Occasion{
-    format("Mom: Er-- yeah... Somethin' like that.")
+    format("Mom: Er-- yeah...\N Somethin' like that.")
 }
 
 text BerryMasterHouse_EventScript_Mom2_Youre_Getting_To_That_Age{
@@ -174,7 +199,7 @@ text BerryMasterHouse_EventScipt_Mom1_Breeders{
 
 }
 
-text BerryMasterHouse_EventScipt_Mom1{
+text BerryMasterHouse_EventScipt_Mom1_Stay_Safe{
     format("You stay safe now, alright? Good luck, Geneova!")
 }
 
@@ -191,6 +216,7 @@ movement MaudMove{
 }
 
 // Mom1 movement commands
+
 movement LookRight{
     face_right
 }

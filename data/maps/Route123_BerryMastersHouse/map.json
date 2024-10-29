@@ -130,7 +130,25 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "BerryMastersHouse_EventScript_Mom1"
+      "script": "BerryMastersHouse_EventScript_Starter"
+    },
+    {
+      "type": "trigger",
+      "x": 2,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "BerryMasterHouse_EventScipt_Morning"
+    },
+    {
+      "type": "trigger",
+      "x": 0,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "BerryMasterHouse_EventScipt_Morning"
     }
   ],
   "bg_events": [
