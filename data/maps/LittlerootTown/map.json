@@ -250,15 +250,15 @@
     },
     {
       "type": "sign",
-      "x": 7,
+      "x": 12,
       "y": 8,
       "elevation": 3,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "LittlerootTown_EventScript_BrendansHouseSign"
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+      "script": "LittlerootTown_EventScript_NewSign"
     },
     {
       "type": "sign",
-      "x": 12,
+      "x": 7,
       "y": 8,
       "elevation": 3,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",

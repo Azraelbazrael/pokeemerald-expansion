@@ -1,0 +1,32 @@
+mapscripts Route123_BerryMaster_upstairs_MapScripts {}
+
+//setvar VAR_CONTEST_HALL_STATE, 1
+
+script ROUTE_123_BERRYMASTERSHOUSE_STUPID_TOGEPI_DOLL{
+    lockall
+    msgbox("She sits quietly on your desk. It's togepi!")
+    waitmessage
+    releaseall
+}
+
+
+
+
+script Contest_Test{
+    //setvar VAR_CONTEST_HALL_STATE, 1
+    
+    lockall 
+    //special(TryEnterContestMon)
+    if(flag(FLAG_SYS_POKEMON_GET)){   
+        call(LilycoveCity_ContestLobby_EventScript_SpeakToContestReceptionist)
+        special(SetContestTrainerGfxIds)
+        //call(LilycoveCity_ContestLobby_EventScript_SetPlayerGfx)
+        call(LilycoveCity_ContestLobby_EventScript_SetContestType)
+        call(LilycoveCity_ContestLobby_EventScript_WarpToContestHall)
+        waitstate
+	       
+    }     
+    end
+
+    
+}
